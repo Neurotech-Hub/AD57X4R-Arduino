@@ -1,5 +1,5 @@
 # AD57X4/R Arduino Library
-This library is based on [janelia-arduino/AD57X4R: Provides an SPI based interface to the AD5724R, AD5734R, and the AD5754R Quad 12-/14-/16-Bit Unipolar/Bipolar Voltage Output DACs.](https://github.com/janelia-arduino/AD57X4R/tree/main). 
+This library is based on [janelia-arduino/AD57X4R: Provides an SPI based interface to the AD5724R, AD5734R, and the AD5754R Quad 12-/14-/16-Bit Unipolar/Bipolar Voltage Output DACs.](https://github.com/janelia-arduino/AD57X4R/tree/main).
 
 The library has been updated to explicity enable the internal reference, making this compatible with non-R versions (ie, AD57X4), as well as the ability to specify the SPI clock speed.
 
@@ -12,6 +12,8 @@ The library has been updated to explicity enable the internal reference, making 
 ## Description
 
 Provides an SPI-based interface to the AD5724R, AD5734R, and AD5754R Quad 12-/14-/16-Bit Unipolar/Bipolar Voltage Output DACs.
+
+See [AD5724R/AD5734R/AD5754R (Rev. G)](https://www.analog.com/media/en/technical-documentation/data-sheets/AD5724R_5734R_5754R.pdf).
 
 The outputs can be set in two ways:
 
