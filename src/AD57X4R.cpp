@@ -9,6 +9,7 @@
 // Peter Polidoro peter@polidoro.io
 // ----------------------------------------------------------------------------
 #include "AD57X4R.h"
+#include "Arduino.h"
 
 AD57X4R::AD57X4R()
 {
@@ -73,7 +74,7 @@ void AD57X4R::setup(Resolution resolution,
   resolution_ = resolution;
   SPI.begin();
   powerUpAllDacs();
-  setAllOutputRanges(UNIPOLAR_5V);
+  setAllOutputRanges(BIPOLAR_5V);
   setAllAnalogValues(0);
 }
 
@@ -101,7 +102,7 @@ void AD57X4R::setOutputRange(size_t channel,
 
 void AD57X4R::setAllOutputRanges(Range range)
 {
-  uint8_t chip = CHIP_ALL;
+  int8_t chip = CHIP_ALL;
   uint8_t channel_address = CHANNEL_ADDRESS_ALL;
   for (size_t channel = 0; channel < getChannelCount(); ++channel)
   {
@@ -645,12 +646,14 @@ void AD57X4R::setOutputRangeOnChip(int chip,
     data = OUTPUT_RANGE_UNIPOLAR_5V;
     break;
   }
+  
   Datagram mosi_datagram;
   mosi_datagram.bytes = 0;
   mosi_datagram.rw = RW_WRITE;
   mosi_datagram.reg = REGISTER_OUTPUT_RANGE;
   mosi_datagram.channel_address = channel_address;
   mosi_datagram.data = data;
+
   writeMosiDatagramToChip(chip, mosi_datagram);
 }
 
